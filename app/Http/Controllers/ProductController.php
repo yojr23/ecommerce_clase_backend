@@ -7,15 +7,21 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     function index() {
-        return "List products";
+        dd('Hola desde index');
+        return view('products.index');
     }
 
     function detail($id, $category = null) {
-        if($category) {
-            return "Product detail: $id, category: $category";
+        if($category != null) {
+            return view('products.detail',[
+                'myId' => $id,
+                 'myCategory' => $category]);
         } else {
-            return "Product detail: $id, no category";
+            return view('products.detail',[
+                'myId' => $id,
+                'myCategory' => 'No category']);
         }
+        
     }
 
     function create() {
