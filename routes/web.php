@@ -1,19 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/products',[ProductController::class, 'index']);
 
-Route::get('/products', function () {
-    return "List products";
-});
 
-Route::get('/products/{id}/{category?}', function ($name,$category = null) {
-    if ($category != null) {
-        return "Detail products" . $name . " With category: " . $category;
-    } else{
-        return "Detail products" . $name;
-    }
-});
+Route::get('/products/create',[ProductController::class, 'create']);
+
+Route::get('/products/{id}/{category?}',[ProductController::class, 'detail']);
+
