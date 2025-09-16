@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     function index() {
-        dd('Hola desde index');
         return view('products.index');
     }
 
@@ -25,6 +24,6 @@ class ProductController extends Controller
     }
 
     function create() {
-        return "FORM FOR CREATE PRODUCTS";
+        return view('products.create');
     }
 }
