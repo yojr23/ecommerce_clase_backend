@@ -24,8 +24,6 @@ return new class extends Migration
             $table->decimal('rating', 3, 1)->default(0); // rating promedio, hasta 5.0
             $table->integer('reviews_count')->default(0); // cantidad de reseñas
             $table->json('features')->nullable(); // lista de características
-            $table->json('specifications')->nullable(); // especificaciones técnicas
-            $table->json('gallery')->nullable(); // galería de imágenes
         });
     }
 
