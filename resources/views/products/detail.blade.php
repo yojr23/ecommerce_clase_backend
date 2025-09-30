@@ -25,7 +25,7 @@ $products = [
             'Resistente al agua IP68'
         ],
         'specifications' => [
-            'Pantalla' => '6.7" Super Retina XDR OLED, 2796×1290px',
+            'Pantalla'   => '6.7" Super Retina XDR OLED, 2796×1290px',
             'Procesador' => 'Apple A17 Pro (3nm)',
             'RAM' => '8GB',
             'Almacenamiento' => '256GB / 512GB / 1TB',
