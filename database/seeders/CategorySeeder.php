@@ -27,6 +27,7 @@ class CategorySeeder extends Seeder
         $categoryTelevisions->name = 'Televisions';
         $categoryTelevisions->save();
 
+        Category::factory()->count(200)->create();
         
     }
 }
