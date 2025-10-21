@@ -1,0 +1,343 @@
+/* Colores de la empresa */
+:root {
+    --primary-color: #2563eb;      /* Azul principal */
+    --secondary-color: #1e40af;    /* Azul oscuro */
+    --accent-color: #f59e0b;       /* Naranja/Dorado */
+    --dark-color: #1f2937;         /* Gris oscuro */
+    --light-color: #f3f4f6;        /* Gris claro */
+    --white: #ffffff;
+    --text-dark: #111827;
+    --text-light: #6b7280;
+}
+
+/* Reset y generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar mejorado */
+.navbar-custom {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-custom .navbar-brand {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--white) !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.navbar-custom .navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white) !important;
+    transform: translateY(-2px);
+}
+
+.navbar-custom .btn-login,
+.navbar-custom .btn-register {
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 0.25rem;
+}
+
+.navbar-custom .btn-login {
+    background-color: transparent;
+    border: 2px solid var(--white);
+    color: var(--white) !important;
+}
+
+.navbar-custom .btn-login:hover {
+    background-color: var(--white);
+    color: var(--primary-color) !important;
+    transform: translateY(-2px);
+}
+
+.navbar-custom .btn-register {
+    background-color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    color: var(--white) !important;
+}
+
+.navbar-custom .btn-register:hover {
+    background-color: #d97706;
+    border-color: #d97706;
+    transform: translateY(-2px);
+}
+
+.navbar-custom .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-custom .dropdown-menu {
+    border: none;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+.navbar-custom .dropdown-item {
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom .dropdown-item:hover {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+}
+
+/* Icono de usuario */
+.user-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+/* Main content */
+main {
+    flex: 1;
+    background-color: var(--light-color);
+}
+
+/* Footer mejorado */
+.footer-custom {
+    background: linear-gradient(135deg, var(--dark-color) 0%, #111827 100%);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+    margin-top: auto;
+}
+
+.footer-section h5 {
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-section a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    color: var(--white);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-payment-methods {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.payment-icon {
+    background-color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    color: var(--dark-color);
+    font-size: 0.85rem;
+}
+
+/* Estilos para Login y Register */
+.auth-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.auth-card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.auth-card-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.auth-card-body {
+    padding: 2.5rem;
+    background-color: var(--white);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary-custom {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.auth-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.auth-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1.5rem 0;
+    color: var(--text-light);
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.divider::before {
+    margin-right: .5em;
+}
+
+.divider::after {
+    margin-left: .5em;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar-custom .btn-login,
+    .navbar-custom .btn-register {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+    
+    .footer-section {
+        margin-bottom: 2rem;
+    }
+    
+    .auth-card-body {
+        padding: 1.5rem;
+    }
+}
