@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 
+Route::get('/',[ProductController::class, 'index'])->name('index');
 
 Route::prefix('products')->controller(ProductController::class)->group(function() {
     Route::get('/', 'index');
