@@ -11,9 +11,32 @@ use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        return view('products.index');
+        $categories = Category::orderBy('name')->get();
+        $productsQuery = Product::with(['category', 'brand'])->orderByDesc('created_at');
+        $selectedCategoryId = $request->input('category_id');
+        $search = $request->input('q');
+
+        if (! empty($selectedCategoryId)) {
+            $productsQuery->where('category_id', $selectedCategoryId);
+        }
+
+        if (! empty($search)) {
+            $productsQuery->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%')
+                    ->orWhere('description', 'like', '%' . $search . '%');
+            });
+        }
+
+        $products = $productsQuery->paginate(12)->withQueryString();
+
+        return view('products.index', [
+            'categories' => $categories,
+            'products' => $products,
+            'selectedCategoryId' => $selectedCategoryId,
+            'search' => $search,
+        ]);
     }
 
     public function detail($id, $category = null): View

@@ -12,12 +12,24 @@
                     encuentra rápidamente lo que necesitas.
                 </p>
                 <div class="d-flex flex-column flex-sm-row gap-3">
-                    <a href="{{ route('register') }}" class="btn btn-primary btn-lg">Crear cuenta</a>
-                    <a href="{{ route('login') }}" class="btn btn-outline-primary btn-lg">Iniciar sesión</a>
+                    @auth
+                        <a href="{{ route('home') }}" class="btn btn-primary btn-lg">Ir a mi panel</a>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                           class="btn btn-outline-primary btn-lg">
+                            Cerrar sesión
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    @else
+                        <a href="{{ route('register') }}" class="btn btn-primary btn-lg">Crear cuenta</a>
+                        <a href="{{ route('login') }}" class="btn btn-outline-primary btn-lg">Iniciar sesión</a>
+                    @endauth
                 </div>
             </div>
             <div class="col-md-5 text-center">
-                <img src="https://via.placeholder.com/420x280?text=TechStore" class="img-fluid rounded-4 shadow"
+                <img src="{{ asset('assets/img/hero-techstore.svg') }}" class="img-fluid rounded-4 shadow"
                     alt="TechStore hero">
             </div>
         </div>
@@ -52,7 +64,7 @@
         @forelse ($products as $product)
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/640x420?text=Producto" class="card-img-top" alt="Product image">
+                    <img src="{{ asset('assets/img/product-placeholder.svg') }}" class="card-img-top" alt="Product image">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="text-muted mb-2">{{ optional($product->category)->name ?? 'Sin categoría' }}</p>

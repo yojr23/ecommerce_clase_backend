@@ -35,7 +35,7 @@
         @forelse ($products as $product)
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/640x420?text=Producto" class="card-img-top" alt="Product image">
+                    <img src="{{ asset('assets/img/product-placeholder.svg') }}" class="card-img-top" alt="Product image">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="text-muted mb-2">{{ optional($product->category)->name ?? 'Sin categoría' }}</p>

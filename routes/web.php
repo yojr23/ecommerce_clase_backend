@@ -7,10 +7,13 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 
 
-Route::prefix('products')->controller(ProductController::class)->group(function () {
-    Route::get('/', 'index');
-    Route::get('/{id}/{category?}', 'detail');
-});
+Route::prefix('products')
+    ->name('products.')
+    ->controller(ProductController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/{id}/{category?}', 'detail')->name('detail');
+    });
 
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
