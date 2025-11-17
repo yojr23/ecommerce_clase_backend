@@ -145,6 +145,14 @@
                             <i class="fas fa-tag"></i>
                             <span>Ofertas</span>
                         </a>
+                        @auth
+                            @if(auth()->user()->is_admin)
+                                <a class="text-white hover:text-yellow-400 transition-colors font-medium flex items-center gap-2" href="{{ route('admin.products.index') }}">
+                                    <i class="fas fa-toolbox"></i>
+                                    <span>Panel Admin</span>
+                                </a>
+                            @endif
+                        @endauth
 
                         <!-- Auth Links -->
                         @guest
@@ -220,6 +228,14 @@
                             <i class="fas fa-tag"></i>
                             <span>Ofertas</span>
                         </a>
+                        @auth
+                            @if(auth()->user()->is_admin)
+                                <a class="text-white hover:text-yellow-400 py-2 flex items-center gap-2" href="{{ route('admin.products.index') }}">
+                                    <i class="fas fa-toolbox"></i>
+                                    <span>Panel Admin</span>
+                                </a>
+                            @endif
+                        @endauth
                         
                         @guest
                             @if (Route::has('login'))

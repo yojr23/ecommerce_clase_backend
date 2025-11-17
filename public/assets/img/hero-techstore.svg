@@ -1,0 +1,23 @@
+<svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" rx="32" fill="#0f172a"/>
+  <circle cx="520" cy="80" r="60" fill="#1d4ed8" opacity="0.6"/>
+  <circle cx="560" cy="140" r="40" fill="#60a5fa" opacity="0.4"/>
+  <path d="M80 320 Q200 200 360 260 T600 200" stroke="url(#grad)" stroke-width="14" fill="none" opacity="0.55"/>
+  <rect x="120" y="110" width="280" height="180" rx="24" fill="rgba(15,23,42,0.6)" stroke="url(#grad)" stroke-width="3"/>
+  <rect x="140" y="130" width="240" height="40" rx="12" fill="rgba(59,130,246,0.3)"/>
+  <rect x="140" y="190" width="200" height="20" rx="10" fill="rgba(96,165,250,0.5)"/>
+  <rect x="140" y="220" width="120" height="20" rx="10" fill="rgba(96,165,250,0.35)"/>
+  <circle cx="410" cy="150" r="35" fill="url(#grad2)" opacity="0.8"/>
+  <text x="140" y="320" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="32" font-weight="bold">TechStore</text>
+  <text x="140" y="350" fill="#bae6fd" font-family="Arial, sans-serif" font-size="18">Soluciones inteligentes para tu día a día</text>
+</svg>
