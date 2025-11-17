@@ -139,33 +139,37 @@ erDiagram
     PRODUCT ||--o{ IMAGES_PRODUCT : "product_id"
 
     CATEGORY {
-        bigIncrements id PK
+        bigint id PK
         string name
-        timestamps timestamps
+        datetime created_at
+        datetime updated_at
     }
 
     BRAND {
-        bigIncrements id PK
+        bigint id PK
         string name
-        timestamps timestamps
+        datetime created_at
+        datetime updated_at
     }
 
     PRODUCT {
-        bigIncrements id PK
+        bigint id PK
         string name
         text description
         decimal price
-        decimal original_price nullable
-        unsignedBigInteger category_id FK
-        unsignedBigInteger brand_id FK
-        timestamps timestamps
+        decimal original_price
+        bigint category_id FK
+        bigint brand_id FK
+        datetime created_at
+        datetime updated_at
     }
 
     IMAGES_PRODUCT {
-        bigIncrements id PK
+        bigint id PK
         string url
-        unsignedBigInteger product_id FK
-        timestamps timestamps
+        bigint product_id FK
+        datetime created_at
+        datetime updated_at
     }
 ```
 
