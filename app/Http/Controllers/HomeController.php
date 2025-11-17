@@ -26,6 +26,19 @@ class HomeController extends Controller
      */
     public function index(Request $request): View
     {
+        return view('home', $this->catalogData($request));
+    }
+
+    public function welcome(Request $request): View
+    {
+        return view('welcome', $this->catalogData($request));
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function catalogData(Request $request): array
+    {
         $categories = Category::orderBy('name')->get();
         $productsQuery = Product::with(['category', 'brand'])->orderByDesc('created_at');
         $selectedCategoryId = $request->input('category_id');
@@ -36,15 +49,10 @@ class HomeController extends Controller
 
         $products = $productsQuery->paginate(12)->withQueryString();
 
-        return view('home', [
+        return [
             'categories' => $categories,
             'products' => $products,
             'selectedCategoryId' => $selectedCategoryId,
-        ]);
-    }
-
-    public function welcome()
-    {
-        return view('welcome');
+        ];
     }
 }

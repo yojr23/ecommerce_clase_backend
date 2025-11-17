@@ -33,5 +33,5 @@ Route::middleware(['auth', 'admin'])
     });
 Auth::routes();
 
-Route::get('/prodcuts', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
