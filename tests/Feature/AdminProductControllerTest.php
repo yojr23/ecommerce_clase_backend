@@ -42,7 +42,7 @@ class AdminProductControllerTest extends TestCase
 
         $response = $this->actingAs($user)->post(route('admin.products.store'), $payload);
 
-        $response->assertRedirect(route('admin.products.create'));
+        $response->assertRedirect(route('admin.products.index'));
         $this->assertDatabaseHas('product', [
             'name' => 'Laptop Pro',
             'category_id' => $category->id,
@@ -152,7 +152,7 @@ class AdminProductControllerTest extends TestCase
         $response = $this->actingAs($user)->get(route('admin.products.index'));
 
         $response->assertOk();
-        $response->assertViewIs('admin.products.index');
+        $response->assertViewIs('admin.products.table');
         $response->assertSee($product->name);
         $response->assertSee($category->name);
         $response->assertSee($brand->name);
