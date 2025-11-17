@@ -2,28 +2,66 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    function index() {
+    public function index(): View
+    {
         return view('products.index');
     }
 
-    function detail($id, $category = null) {
-        if($category != null) {
-            return view('products.detail',[
+    public function detail($id, $category = null): View
+    {
+        if ($category !== null) {
+            return view('products.detail', [
                 'myId' => $id,
-                 'myCategory' => $category]);
-        } else {
-            return view('products.detail',[
-                'myId' => $id,
-                'myCategory' => 'No category']);
+                'myCategory' => $category,
+            ]);
         }
-        
+
+        return view('products.detail', [
+            'myId' => $id,
+            'myCategory' => 'No category',
+        ]);
     }
 
-    function create() {
-        return view('products.create');
+    public function indexAdmin(): View
+    {
+        $products = Product::with(['category', 'brand'])
+            ->latest()
+            ->paginate(15);
+
+        return view('admin.products.index', compact('products'));
+    }
+
+    public function createAdmin(): View
+    {
+        $categories = Category::orderBy('name')->get();
+        $brands = Brand::orderBy('name')->get();
+
+        return view('admin.products.create', compact('categories', 'brands'));
+    }
+
+    public function storeAdmin(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'category_id' => ['required', 'exists:category,id'],
+            'brand_id' => ['required', 'exists:brand,id'],
+        ]);
+
+        Product::create($validated);
+
+        return redirect()
+            ->route('admin.products.create')
+            ->with('status', 'Producto creado correctamente.');
     }
 }

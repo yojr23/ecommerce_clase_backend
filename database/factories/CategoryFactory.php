@@ -13,8 +13,10 @@ class CategoryFactory extends Factory
 
     public function definition(): array
     {
+        $categories = config('catalog.categories');
+
         return [
-            'name' => fake()->name()
+            'name' => fake()->randomElement($categories),
         ];
     }
 }

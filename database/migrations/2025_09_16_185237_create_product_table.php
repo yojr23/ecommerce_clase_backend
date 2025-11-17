@@ -18,13 +18,12 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->decimal('price', 14, 2);
             $table->decimal('original_price', 14, 2)->nullable();
-            $table->string('image')->nullable(); // imagen principal
-            $table->string('brand')->nullable(); // marca
             $table->integer('stock')->default(0); // cantidad en inventario
             $table->decimal('rating', 3, 1)->default(0); // rating promedio, hasta 5.0
             $table->integer('reviews_count')->default(0); // cantidad de reseñas
             $table->json('features')->nullable(); // lista de características
             $table->foreignId('category_id')->constrained('category')->onDelete('cascade');
+            $table->foreignId('brand_id')->constrained('brand')->onDelete('cascade');
         });
     }
 
