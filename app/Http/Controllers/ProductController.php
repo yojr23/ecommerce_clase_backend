@@ -34,10 +34,10 @@ class ProductController extends Controller
     public function indexAdmin(): View
     {
         $products = Product::with(['category', 'brand'])
-            ->latest()
-            ->paginate(15);
+            ->orderByDesc('id')
+            ->paginate(10);
 
-        return view('admin.products.index', compact('products'));
+        return view('admin.products.table', compact('products'));
     }
 
     public function createAdmin(): View
@@ -61,7 +61,16 @@ class ProductController extends Controller
         Product::create($validated);
 
         return redirect()
-            ->route('admin.products.create')
+            ->route('admin.products.index')
             ->with('status', 'Producto creado correctamente.');
+    }
+
+    public function destroyAdmin(Product $product): RedirectResponse
+    {
+        $product->delete();
+
+        return redirect()
+            ->route('admin.products.index')
+            ->with('status', 'Producto eliminado correctamente.');
     }
 }

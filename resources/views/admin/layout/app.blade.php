@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Panel de Administración')</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,13 +18,21 @@
                 <span>TechStore Admin</span>
             </div>
             <nav class="admin-nav">
-                <a href="{{ route('admin.products.create') }}"
-                    class="{{ request()->routeIs('admin.products.create') ? 'active' : '' }}">
-                    Products
-                </a>
                 <a href="{{ route('admin.products.index') }}"
                     class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }}">
-                    Listado
+                    Products
+                </a>
+                <a href="{{ route('admin.products.create') }}"
+                    class="{{ request()->routeIs('admin.products.create') ? 'active' : '' }}">
+                    Add product
+                </a>
+                <a href="{{ route('admin.categories.index') }}"
+                    class="{{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
+                    Categories
+                </a>
+                <a href="{{ route('admin.brands.index') }}"
+                    class="{{ request()->routeIs('admin.brands.*') ? 'active' : '' }}">
+                    Brands
                 </a>
             </nav>
         </aside>
